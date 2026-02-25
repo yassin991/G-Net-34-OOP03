@@ -33,24 +33,48 @@ namespace ASSIGNMAENT_OOP03
             //   Through an object instance from outside:
             //No. protected members cannot be accessed directly through an object from outside the class hierarchy.
 
-  //   b) What is the difference between protected internal and private protected?
-//protected internal Same assembly OR derived classes in other assemblies
-//private protected Only derived classes within the same assembly
+            //   b) What is the difference between protected internal and private protected?
+            //protected internal Same assembly OR derived classes in other assemblies
+            //private protected Only derived classes within the same assembly
 
-//c) What does the sealed keyword do when applied to a class? What about when applied to a method?
-//When applied to a class
-//A sealed class cannot be inherited.
-//When applied to a method
-//A sealed method cannot be overridden again in further derived classes.
-//It is used when overriding a virtual method.
+            //c) What does the sealed keyword do when applied to a class? What about when applied to a method?
+            //When applied to a class
+            //A sealed class cannot be inherited.
+            //When applied to a method
+            //A sealed method cannot be overridden again in further derived classes.
+            //It is used when overriding a virtual method.
 
-//d) Can you create an object from a sealed class using new? Why or why not?
-//        d) Can you create an object from a sealed class using new?
-// Yes, you can create objects from a sealed class.
-//        sealed only prevents inheritance, not object creation.
-//        The class can still be instantiated normally; it just cannot be extended.
+            //d) Can you create an object from a sealed class using new? Why or why not?
+            //        d) Can you create an object from a sealed class using new?
+            // Yes, you can create objects from a sealed class.
+            //        sealed only prevents inheritance, not object creation.
+            //        The class can still be instantiated normally; it just cannot be extended.
 
-    #endregion
-}
+            #endregion
+            #region the_Movie_Ticket_Booking_System
+            Cinema cinema = new Cinema("Cinema Elsuez");
+
+            cinema.OpenCinema();
+
+            Ticket t1 = new StandardTicket("Inception", 120, "A-5");
+            Ticket t2 = new VIPTicket("Avengers", 200, true);
+            Ticket t3 = new IMAXTicket("Dune", 180, false);
+            Ticket t4 = new IMAXTicket("Joker", 350, true);
+
+            cinema.AddTicket(t1);
+            cinema.AddTicket(t2);
+            cinema.AddTicket(t3);
+            cinema.AddTicket(t4);
+
+
+            cinema.PrintAllTickets();
+
+            Console.WriteLine("\n========= Statistics =========");
+            Console.WriteLine($"Total Tickets Created: {Ticket.GetTotalTickets()}");
+
+            cinema.CloseCinema();
+
+            #endregion
+        }
     }
 }
